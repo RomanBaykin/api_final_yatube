@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'posts',
-    'drf_yasg',
     'djoser',
     'django_filters',
 ]
@@ -105,14 +104,4 @@ SIMPLE_JWT = {
     # Устанавливаем срок жизни токена
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
-}
-
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
-    }
 }
