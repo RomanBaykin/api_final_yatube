@@ -2,6 +2,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, mixins, filters
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import LimitOffsetPagination
+from django.shortcuts import get_object_or_404
 
 from posts.models import Post, Comment, Follow, Group
 from .serializers import (PostSerializer, CommentSerializer,
@@ -28,7 +29,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """Получение автора из запроса"""
-        serializer.save(author=self.request.user)
+        post = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        serializer.save(author=self.request.user, post=post)
 
     def get_queryset(self):
         """Переопределение queryset, получение коммента по post_id"""

@@ -4,13 +4,13 @@ from .views import PostViewSet, CommentViewSet, FollowList, GroupViewSet
 
 
 router_v1 = SimpleRouter()
-router_v1.register(r'posts', PostViewSet)
+router_v1.register(r'posts', PostViewSet, basename='posts-list')
 router_v1.register(r'^posts/(?P<post_id>\d+)/comments', CommentViewSet,
-                   basename='comments')
+                   basename='comments-list')
 router_v1.register(r'^posts/(?P<post_id>\d+)/comments/(?P<id>\d+)',
-                   CommentViewSet, basename='comments')
-router_v1.register(r'follow', FollowList)
-router_v1.register(r'groups', GroupViewSet)
+                   CommentViewSet, basename='comment-detail')
+router_v1.register(r'follow', FollowList, basename='follow-list')
+router_v1.register(r'groups', GroupViewSet, 'group-detail')
 
 urlpatterns = [
     path('v1/', include(router_v1.urls))
