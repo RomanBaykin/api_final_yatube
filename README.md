@@ -49,3 +49,11 @@ python manage.py runserver
 - получение JWT-токена: [http://127.0.0.1:8000/api/v1/jwt/create/(указываются username и password)]
 - получение постов: [http://127.0.0.1:8000/api/v1/posts/?limit=5&offset=1] (limit - количество постов на странице, offset - с какого поста начинается отсчёт)
 - создание поста: [http://127.0.0.1:8000/api/v1/posts/(указываются text и group)]
+
+Технологии:
+```
+Python 3.7
+Django==2.2.16
+Django Rest Framework,
+Simple JWT
+```
