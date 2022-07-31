@@ -53,7 +53,7 @@ python manage.py runserver
 Технологии:
 ```
 Python 3.7
-Django==2.2.16
+Django 2.2.16
 Django Rest Framework,
 Simple JWT
 ```
